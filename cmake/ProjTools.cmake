@@ -715,7 +715,7 @@ if(USE_CODE_COV)
                      COMMAND echo "#!/bin/sh" > ${CMAKE_BINARY_DIR}/check
                      COMMAND echo "${cd_cmd} ${CMAKE_BINARY_DIR}" >> ${CMAKE_BINARY_DIR}/check
                      COMMAND echo "${CMAKE_COMMAND} .." >> ${CMAKE_BINARY_DIR}/check
-                     COMMAND echo "${CMAKE_COMMAND} --build ." >> ${CMAKE_BINARY_DIR}/check
+                     COMMAND echo "${CMAKE_COMMAND} --build . --target check" >> ${CMAKE_BINARY_DIR}/check
                      COMMAND chmod u+x ${CMAKE_BINARY_DIR}/check)
   add_custom_target(check.cov.gen.done DEPENDS check.cov.gen ${CMAKE_BINARY_DIR}/check)
   SETUP_TARGET_FOR_COVERAGE(check.cov ${CMAKE_BINARY_DIR}/check ${CMAKE_BINARY_DIR}/coverage)
